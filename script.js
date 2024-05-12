@@ -15,7 +15,9 @@ b.addEventListener('click',()=>{
 	const tag=document.createElement('p');
 	p.then((d)=>{
 		tag.innerHTML=`${d}`;
-	});
+	}).catch((e)=>{
+		tag.innerHTML=`{e}`;
+	})
 	document.getElementById('form').style.display='none';
 	document.querySelector('body').appendChild(tag);
 });
