@@ -2,7 +2,7 @@
 let n=document.getElementById('name');
 let a=document.getElementById('age');
 let b=document.getElementById('btn');
-let tag=document.createElement('p');
+
 
     let p=new Promise((resolve,reject)=>{
         b.addEventListener('click',()=>{
@@ -14,19 +14,13 @@ let tag=document.createElement('p');
 	}
 }
 else{
-tag.innerHTML=`Please enter valid details`;
-document.querySelector('body').appendChild(tag); 
+alert(`Please enter valid details`);
     }
 });	
 });
 
 p.then((d)=>{
-        tag.innerHTML='';
-		tag.innerHTML=`${d}`;
+        alert(`d`);
 	}).catch((e)=>{
-        tag.innerHTML='';
-		tag.innerHTML=`${e}`;
-	}).finally(()=>{
-    document.getElementById('form').style.display='none';
-	document.querySelector('body').appendChild(tag);
-    });
+       alert(`e`);
+	});
