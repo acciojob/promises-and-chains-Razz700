@@ -20,7 +20,7 @@ alert(`Please enter valid details`);
 });
 
 p.then((d)=>{
-        alert(`d`);
+        alert(`${d}`);
 	}).catch((e)=>{
-       alert(`e`);
+       alert(`${e}`);
 	});
