@@ -27,6 +27,6 @@ p.then((d)=>{
         tag.innerHTML='';
 		tag.innerHTML=`${e}`;
 	}).finally(()=>{
-    document.getElementById('form1').style.display='none';
+    document.getElementById('form').style.display='none';
 	document.querySelector('body').appendChild(tag);
     });
