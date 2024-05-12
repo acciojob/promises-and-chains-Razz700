@@ -2,22 +2,31 @@
 let n=document.getElementById('name');
 let a=document.getElementById('age');
 let b=document.getElementById('btn');
-let p=new Promise((resolve,reject)=>{
-	if(parseInt(a.value)>=18){
-		resolve `Welcome, ${n.value}. You can vote.`;
+let tag=document.createElement('p');
+
+    let p=new Promise((resolve,reject)=>{
+        b.addEventListener('click',()=>{
+    if(n.value && a.value){
+        if(parseInt(a.value)>=18){
+		resolve(`Welcome, ${n.value}. You can vote.`);
+	}else{
+		reject (`Oh sorry ${n.value}. You aren't old enough.`)
 	}
-	else{
-		reject `Oh sorry ${n.value}. You aren't old enough.`
-	}
-	
+}
+else{
+tag.innerHTML=`Please enter valid details`;
+document.querySelector('body').appendChild(tag); 
+    }
+});	
 });
-b.addEventListener('click',()=>{
-	const tag=document.createElement('p');
-	p.then((d)=>{
+
+p.then((d)=>{
+        tag.innerHTML='';
 		tag.innerHTML=`${d}`;
 	}).catch((e)=>{
-		tag.innerHTML=`{e}`;
-	})
-	document.getElementById('form').style.display='none';
+        tag.innerHTML='';
+		tag.innerHTML=`${e}`;
+	}).finally(()=>{
+    document.getElementById('form1').style.display='none';
 	document.querySelector('body').appendChild(tag);
-});
+    });
